@@ -23,7 +23,7 @@ pushGeneratedNumbersToArray(generatedNumbers);
 setTimeout(function () {
 	for (let i = 0; i < generatedNumbers.length; i++) {
 		const guess = parseInt(prompt(`Quali numeri ti erano stati proposti?`));
-		if (isIntoArray(guess, generatedNumbers) == true) {
+		if (isInArray(guess, generatedNumbers) == true) {
 			correctGuesses.push(guess);
 		}
 	}
@@ -39,12 +39,8 @@ setTimeout(function () {
 		console.log('Ti sei ricordato ' + correctGuesses.length + ' numeri!');
 		console.log('I numeri indovinati correttamente: ' + correctGuesses);
 	}
-
-	/* correctGuesses.length == numbersAmount ? console.log('Ti sei ricordato tutti i numeri!') : console.log('Ti sei ricordato ' + correctGuesses.length + ' numeri!');
-	correctGuesses.length == 0 ? console.log('Non ti sei ricordato nessun numero!') : console.log('Ti sei ricordato ' + correctGuesses.length + ' numeri!'); */
 }, countdown);
 
-// Funzioni
 // Funzione per generare i numeri che l'utente dovra' ricordare
 function getRandomNumber(n) {
 	return Math.floor(Math.random() * n + 1);
@@ -63,14 +59,6 @@ function pushGeneratedNumbersToArray(array) {
 	console.log(array);
 }
 
-function isIntoArray(element, array) {
+function isInArray(element, array) {
 	return !!array.includes(element);
 }
-
-/* 
-La funzione isIntoArray avrei potuto scriverla anche cosi' ma mi piaceva di piu' la versione contratta, e' anche piu' semplice da scrivere.
-
-function isIntoArray(element, array) {
-	return array.includes(element) ? true : false;
-}
-*/
