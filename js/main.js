@@ -24,7 +24,8 @@ setTimeout(function () {
 	for (let i = 0; i < generatedNumbers.length; i++) {
 		do {
 			var guess = parseInt(prompt(`Quali numeri ti erano stati proposti?`));
-		} while (guess < 1 || guess > highestNumber || isNaN(guess));
+		} while (guess < 1 || guess > highestNumber || isNaN(guess) || isInArray(guess, userNumbers) == true);
+		userNumbers.push(guess);
 		if (isInArray(guess, generatedNumbers) == true) {
 			correctGuesses.push(guess);
 		}
@@ -61,6 +62,7 @@ function pushGeneratedNumbersToArray(array) {
 	console.log(array);
 }
 
+//Funzione per controllare se un elemento e' all'interno di un array
 function isInArray(element, array) {
 	return !!array.includes(element);
 }
