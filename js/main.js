@@ -22,7 +22,9 @@ while (highestNumber <= numbersAmount) {
 pushGeneratedNumbersToArray(generatedNumbers);
 setTimeout(function () {
 	for (let i = 0; i < generatedNumbers.length; i++) {
-		const guess = parseInt(prompt(`Quali numeri ti erano stati proposti?`));
+		do {
+			var guess = parseInt(prompt(`Quali numeri ti erano stati proposti?`));
+		} while (guess < 1 || guess > highestNumber || isNaN(guess));
 		if (isInArray(guess, generatedNumbers) == true) {
 			correctGuesses.push(guess);
 		}
